@@ -1,0 +1,60 @@
+{
+  "id": "d31b9563-1292-483a-89ca-ae0caa50a244",
+  "categoryId": "25044c03-549f-4a52-86c3-975196966aa1",
+  "slug": "glass7",
+  "name": "Кіт",
+  "description": "Фігурка кота з прозорого скла",
+  "imageUrl": "glass7.jpg",
+  "priceCent": 41050,
+  "isActive": true
+},
+{
+  "id": "7cadc8af-3b7d-449f-a003-c99658fb693b",
+  "categoryId": "25044c03-549f-4a52-86c3-975196966aa1",
+  "slug": "glass5",
+  "name": "Цукерниця",
+  "description": "Скляна настільна форма для цукерок",
+  "imageUrl": "glass5.jpg",
+  "priceCent": 37000,
+  "isActive": true
+},
+{
+  "id": "d714a1c5-3586-4c3b-9b77-d450813c6816",
+  "categoryId": "62bab42b-3652-42f6-b3c1-221ce296d66d",
+  "slug": "stone1",
+  "name": "Цукорниця",
+  "description": "Посуд-цукорниця з природнього каменю",
+  "imageUrl": "stone1.jpg",
+  "priceCent": 35000,
+  "isActive": true
+},
+{
+  "id": "35755354-fda6-4cba-b39d-d657067c6b39",
+  "categoryId": "fd7cc5c1-3543-4bd6-b36c-64cf7e8f9030",
+  "slug": "wood5",
+  "name": "Леви",
+  "description": "Декоративний твір з дерева",
+  "imageUrl": "wood5.jpeg",
+  "priceCent": 54000,
+  "isActive": true
+},
+{
+  "id": "bef5a5dc-8bbb-485b-adcf-dcf9b7f62e72",
+  "categoryId": "25044c03-549f-4a52-86c3-975196966aa1",
+  "slug": "glass1",
+  "name": "Сфера з ялинкою",
+  "description": "Декоративна скляна сфера з ялинкою",
+  "imageUrl": "glass1.png",
+  "priceCent": 32050,
+  "isActive": true
+},
+{
+  "id": "3d149a4c-cf4c-403a-b524-e107f684bbae",
+  "categoryId": "d6b69746-b24c-4f42-927b-78c1d539af38",
+  "slug": "office2",
+  "name": "Маятник Ньютона",
+  "description": "Декоративний настільний маятник Ньютона",
+  "imageUrl": "office2.jpg",
+  "priceCent": 42000,
+  "isActive": true
+}
