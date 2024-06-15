@@ -8,6 +8,8 @@ function ListOfProducts() {
   const [data, setData] = useState<Array<IProduct>>([]);
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
+  const [filterOpen, setFilterOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,16 +35,48 @@ function ListOfProducts() {
     setLoading(false);
   };
 
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+
+  const toggleFilter = () => {
+    setFilterOpen(!filterOpen);
+  };
+
+  const filteredData = data.filter(
+    (item) =>
+      item.name.toLowerCase().includes(search.toLowerCase()) ||
+      item.author.toLowerCase().includes(search.toLowerCase()) ||
+      item.genre.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <>
+      <div className="filter-container">
+        <button onClick={toggleFilter} className="btn btn-filter">
+          {filterOpen ? "Close Filter" : "Open Filter"}
+        </button>
+      </div>
+      {filterOpen && (
+        <div className="filter-bar">
+          <input 
+            type="text" 
+            placeholder="Поиск по автору, названи, жанру" 
+            value={search} 
+            onChange={handleSearch} 
+          />
+        </div>
+      )}
       <div className="row">
-        {data.map((el: IProduct) => {
-          return (
+        {filteredData.length > 0 ? (
+          filteredData.map((el: IProduct) => (
             <div className="col-md-3 product-block" key={el.id}>
               <Card props={el} loadBook={() => loadBook(el.id)} />
             </div>
-          );
-        })}
+          ))
+        ) : (
+          <p>No books found</p>
+        )}
       </div>
       {loading ? <p>Loading...</p> : <div className="book-text"><pre>{text}</pre></div>}
     </>
