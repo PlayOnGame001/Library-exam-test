@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import "./App.css";
 
@@ -17,7 +17,7 @@ function App() {
     e.preventDefault();
     try {
       const response = await axios.put( //- как я понял тут put я заменил post на put 
-        "http://localhost:3000/users",
+        "http://localhost:3001/users",
         formData
       );
       if (response.status === 200) {

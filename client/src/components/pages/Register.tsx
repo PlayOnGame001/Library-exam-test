@@ -1,12 +1,11 @@
-import FormRegister from "../forms/FormRegister";
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 function App() {
   const [formData, setFormData] = useState({
     email: "test@gmail.com",
     login: "admin",
-    gender: "male" // это гендер 
+    gender: "male" 
   });
 
   const handleChange = (e: any) => {
@@ -16,8 +15,8 @@ function App() {
   const handleUpdateUser = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await axios.put( //- как я понял тут put я заменил post на put 
-        "http://localhost:3000/users",
+      const response = await axios.put(  
+        "http://localhost:3001/users",
         formData
       );
       if (response.status === 200) {
