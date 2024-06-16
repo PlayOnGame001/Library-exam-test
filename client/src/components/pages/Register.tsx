@@ -1,11 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 function App() {
   const [formData, setFormData] = useState({
-    email: "test@gmail.com",
-    login: "admin",
-    gender: "male" 
+    email: "",
+    login: "",
+    gender: "male",
+    password: "" 
   });
 
   const handleChange = (e: any) => {
@@ -15,17 +16,16 @@ function App() {
   const handleUpdateUser = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await axios.put(  
+      const response = await axios.put(
         "http://localhost:3001/users",
         formData
       );
-      if (response.status === 200) {
-        console.log(response);
-      }
+      console.log(response);
     } catch (err) {
       console.error(err);
     }
   };
+  
 
   return (
     <>
@@ -33,8 +33,8 @@ function App() {
         <div className="col-6">
           <form onSubmit={handleUpdateUser}>
             <div className="mb-3">
-              <label htmlFor="exampleInputEmail1" className="form-label">
-                Email address
+              <label aria-placeholder="exampleInputEmail1" className="form-label">
+                Электронный адрес
               </label>
               <input
                 type="email"
@@ -51,7 +51,7 @@ function App() {
             </div>
             <div className="mb-3">
               <label htmlFor="exampleInputLogin" className="form-label">
-                Login
+                Логин
               </label>
               <input
                 type="text"
@@ -63,7 +63,20 @@ function App() {
               />
             </div>
             <div className="mb-3">
-              <label>Gender:</label><br />
+              <label aria-placeholder="test" className="form-label">
+                Пароль
+              </label>
+              <input
+                type="password"
+                className="form-control"
+                id="exampleInputPassword"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="mb-3">
+              <label>Пол:</label><br />
               <div className="form-check form-check-inline">
                 <input
                   className="form-check-input"
@@ -75,7 +88,7 @@ function App() {
                   onChange={handleChange}
                 />
                 <label className="form-check-label" htmlFor="male">
-                  Male
+                  Мужчина
                 </label>
               </div>
               <div className="form-check form-check-inline">
@@ -89,21 +102,14 @@ function App() {
                   onChange={handleChange}
                 />
                 <label className="form-check-label" htmlFor="female">
-                  Female
+                  Женщина 
                 </label>
               </div>
             </div>
             <button type="submit" className="btn btn-primary">
-              Send
+              Отправить
             </button>
           </form>
-        </div>
-      </div>
-      <div className="row justify-content-center">
-        <div className="col-6">
-          <p>
-            Email: {formData.email}. Login: {formData.login}. Gender: {formData.gender} 
-          </p>
         </div>
       </div>
     </>
@@ -111,4 +117,6 @@ function App() {
 }
 
 export default App;
+
+
 

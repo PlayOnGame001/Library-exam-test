@@ -53,7 +53,7 @@ const AddBookPage: React.FC = () => {
       var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
       return v.toString(16);
     });
-  }
+  } //генераторо айдишника
 
   return (
     <div className="add-book-page">
@@ -62,42 +62,21 @@ const AddBookPage: React.FC = () => {
       <form onSubmit={handleSubmit} className="add-book-form">
         <label>
           Название книги:
-          <input
-            type="text"
-            name="title"
-            value={bookData.title}
-            onChange={handleChange}
-            required
-          />
+          <input type="text" name="title" value={bookData.title} onChange={handleChange} required />
         </label>
         <label>
           Автор:
-          <input
-            type="text"
-            name="author"
-            value={bookData.author}
-            onChange={handleChange}
-            required
-          />
+          <input type="text" name="author" value={bookData.author} onChange={handleChange} required/>
         </label>
         <label>
           Жанр:
-          <input
-            type="text"
-            name="genre"
-            value={bookData.genre}
-            onChange={handleChange}
-            required
-          />
+          <input type="text" name="genre" value={bookData.genre} onChange={handleChange} required/>
         </label>
         <label>
-          Описание:
-          <textarea
-            name="description"
-            value={bookData.description}
-            onChange={handleChange}
-            required
-          />
+        <div className="mb-3">
+          <label htmlFor="description" className="form-label">Описание:</label>
+          <textarea id="description" name="description" value={bookData.description} onChange={handleChange} required className="form-control"/>
+        </div>
         </label>
         <button type="submit">Добавить книгу</button>
       </form>

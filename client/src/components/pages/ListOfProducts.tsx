@@ -95,5 +95,4 @@ function ListOfProducts() {
     </>
   );
 }
-
 export default ListOfProducts;

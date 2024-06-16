@@ -7,6 +7,7 @@ interface IProduct {
   imageUrl: string;
   isActive: boolean;
   mark: number;
+  
 }
 
 export default IProduct;

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Nabvar() {
+const Navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -23,26 +23,21 @@ export default function Nabvar() {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/">
-                  Home
+                  Главная
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/register">
-                  Registration
+                  Регистрация
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/auth">
-                  Authorization
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/edit-book"> 
+                <Link className="nav-link" to="/edit-books"> {}
                   Редактировать
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/add-book"> 
+                <Link className="nav-link" to="/add-book">
                   Додати книгу
                 </Link>
               </li>
@@ -57,4 +52,6 @@ export default function Nabvar() {
       </nav>
     </div>
   );
-}
+};
+
+export default Navbar;

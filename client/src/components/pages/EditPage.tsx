@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import EditModal from "../../models/EditModel";
+import EditModal from "../../models/EditModel"; 
 import IProduct from "../../models/IProduct";
 
 const EditBooksPage: React.FC = () => {
@@ -10,7 +10,7 @@ const EditBooksPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async () => {   
       setLoading(true);
       try {
         const response = await axios.get("http://localhost:3001/products");
@@ -27,7 +27,7 @@ const EditBooksPage: React.FC = () => {
     setEditingProduct(product);
   };
 
-  const handleSave = async (updatedProduct: IProduct) => {
+  const handleSave = async (updatedProduct: IProduct) => { //для асинхронной работы с сервером
     try {
       await axios.put(`http://localhost:3001/products/${updatedProduct.id}`, updatedProduct);
       const updatedData = data.map((product) =>
@@ -59,6 +59,9 @@ const EditBooksPage: React.FC = () => {
                 <p className="card-genre" style={{ fontWeight: "bold" }}>
                   Жанр: {product.genre}
                 </p>
+                <p className="card-genre" style={{ fontWeight: "bold" }}>
+                  Описание: {product.description}
+                </p>
                 <button className="btn btn-primary" onClick={() => handleEdit(product)}>
                   Редактировать
                 </button>
@@ -68,11 +71,7 @@ const EditBooksPage: React.FC = () => {
         ))}
       </div>
       {editingProduct && (
-        <EditModal
-          product={editingProduct}
-          onClose={() => setEditingProduct(null)}
-          onSave={handleSave}
-        />
+        <EditModal product={editingProduct} onClose={() => setEditingProduct(null)} onSave={handleSave}/> //модальное окно для редактирования
       )}
     </>
   );
