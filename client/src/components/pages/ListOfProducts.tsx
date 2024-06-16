@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Card from "../Card";
 import IProduct from "../../models/IProduct";
-import "./styles.css"; 
+import "./styles.css";
 
 function ListOfProducts() {
   const [data, setData] = useState<Array<IProduct>>([]);
@@ -10,6 +10,7 @@ function ListOfProducts() {
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [filterOpen, setFilterOpen] = useState(false);
+  const [editingProduct, setEditingProduct] = useState<IProduct | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,6 +51,18 @@ function ListOfProducts() {
       item.genre.toLowerCase().includes(search.toLowerCase())
   );
 
+  const handleEdit = (product: IProduct) => {
+    setEditingProduct(product);
+  };
+
+  const handleSave = (updatedProduct: IProduct) => {
+    const updatedData = data.map((product) =>
+      product.id === updatedProduct.id ? updatedProduct : product
+    );
+    setData(updatedData);
+    setEditingProduct(null);
+  };
+
   return (
     <>
       <div className="filter-container">
@@ -61,7 +74,7 @@ function ListOfProducts() {
         <div className="filter-bar">
           <input 
             type="text" 
-            placeholder="Поиск по автору, названи, жанру" 
+            placeholder="Search by name, author, or genre" 
             value={search} 
             onChange={handleSearch} 
           />
@@ -71,7 +84,7 @@ function ListOfProducts() {
         {filteredData.length > 0 ? (
           filteredData.map((el: IProduct) => (
             <div className="col-md-3 product-block" key={el.id}>
-              <Card props={el} loadBook={() => loadBook(el.id)} />
+              <Card props={el} loadBook={() => loadBook(el.id)} onEdit={handleEdit} />
             </div>
           ))
         ) : (

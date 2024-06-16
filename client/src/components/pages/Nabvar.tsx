@@ -37,6 +37,11 @@ export default function Nabvar() {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/edit-books">
+                  Редактировать
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/list_of_users">
                   List Of Users
                 </Link>

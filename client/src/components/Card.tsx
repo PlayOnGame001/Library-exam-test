@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import IProduct from "../models/IProduct";
+import  "./StyleCard.css";
+import "./pages/styles.css"
 
 interface CardProps {
   props: IProduct;
   loadBook: () => void;
+  onEdit: (product: IProduct) => void;
 }
 
 function Card({ props, loadBook }: CardProps) {
@@ -15,14 +18,17 @@ function Card({ props, loadBook }: CardProps) {
         <p className="card-author" style={{ fontSize: "0.9rem", color: "#777" }}>
           Автор: {props.author}
         </p>
-        <p className="card-genre" style={{ fontWeight: "bold" }}>
+        <p className="card-mark">
+          Оценка: {props.mark}
+        </p>
+        <p className="card-genre">
           Жанр: {props.genre}
         </p>
         <p className="card-text">
           Описание: {props.description}
         </p>
         <Link to={`/book/${props.id}`} className="btn btn-primary">
-          Read
+          Читать
         </Link>
       </div>
     </div>

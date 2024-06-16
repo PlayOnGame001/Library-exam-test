@@ -1,0 +1,43 @@
+.card {
+    position: relative;
+}
+  
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+  
+.btn {
+    margin-top: 10px;
+}
+
+.card-mark {
+    margin-top: auto; 
+    align-self: center;  
+    font-weight: bold;
+}
+
+.card-author {
+    margin-top: auto; 
+    align-self: center; 
+    font-weight: bold;
+}
+  
+.card-text {
+    margin-top: auto; 
+    align-self: center;  
+    font-weight: bold;
+}
+
+.card-genre {
+    margin-top: auto; 
+    align-self: center;  
+    font-weight: bold;
+}
+
+.card-genre {
+    margin-top: auto; 
+    align-self: center; 
+    font-weight: bold;
+}
+  
