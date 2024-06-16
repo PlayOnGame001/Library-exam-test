@@ -74,7 +74,7 @@ function ListOfProducts() {
         <div className="filter-bar">
           <input 
             type="text" 
-            placeholder="Search by name, author, or genre" 
+            placeholder="Поиск по назанию, автору, жанру" 
             value={search} 
             onChange={handleSearch} 
           />
